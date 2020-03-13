@@ -2,7 +2,7 @@
 
 A compatibility-checker for [Dyalog APL](http://dyalog.com).
 
-Helps to find out if Dyalog-code will run under a certain (older) version and/or in a Classic interpreter.
+Helps to find out if Dyalog-code will run under a certain (older) version (12.1 or later) and/or in a Classic interpreter.
 
 ## Usage
 
