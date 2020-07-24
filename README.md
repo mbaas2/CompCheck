@@ -8,7 +8,7 @@ Helps to find out if Dyalog-code will run under a certain (older) version (12.1 
 
 * Clone the repository (or download to a folder of your choice)
 
-* ]link.create /git/CompCheck #.CompCheck  ⍝  adjust names as you like 
+* ]link.create /git/CompCheck #.CompCheck  ⍝  adjust names as you like
 
 * `15 #.CompCheck.Run #.foo`
 
@@ -22,6 +22,8 @@ Helps to find out if Dyalog-code will run under a certain (older) version (12.1 
 
   test file `hoo.dyalog` for compatibility with Classic interpreter and versions ≥14.1
 
+A result of `1` indicates success, 0 indicates lack of compatibility. Session-output will explain highlight incompatibilities and provide a summary with offending symbols that were found.
+
 ## Contributing
 
-You are invited to contribute to this repository through Pull-requests or by creating Issues.
+You are invited to contribute to this repository through pull-requests or by creating issues.
