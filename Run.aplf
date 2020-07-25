@@ -1,4 +1,4 @@
- R←{opts}Run ref;s;z;minVers;critical;c;l;sf;V;f;features;v;v∆;NL;i;Features∆
+ R←{opts}Run ref;s;z;minVers;critical;c;l;sf;V;f;features;v;v∆;NL;i;Features∆;nq;uncmnt
  ⍝ opts: select tests,
  ⍝ 1: will it run on Classic?
  ⍝ and/or: minimum-version for it to run:
@@ -22,8 +22,6 @@
      ∘∘∘
  :EndIf
 
- s←('^.*⍝ CompCheck: ignore.*$'⎕R'')s
-
  :If 1∊opts
      sf←∊s
      z←~(⎕UCS sf)∊avuClassic
@@ -34,9 +32,15 @@
  :EndIf
 
  :If 0<minVers←⊃((opts>11)/opts),0
+     s←('^.*⍝ CompCheck: ignore.*$'⎕R'')s
+     s←{1↓¨(⍵=⎕UCS 10)⊂⍵}(⎕UCS 10),s  ⍝ nested lines
+     nq←{0=≠\⍵=''''}¨s                ⍝ not quoted (leaves one quote, but that is no problem for this purpose)
+     uncmnt←nq{~(∨\⍺∧⍵='⍝')}¨s        ⍝ not commented
+     s←∊((nq∧uncmnt)/¨s),¨⎕UCS 10     ⍝ back into simple string
+
      :For i :In ⍸(1↓Features∆)[;1]>minVers
          c←i⊃features
-         :If 0<≢l←(('\W',(2⊃c),'\W')⎕S'%'⍠'Mode' 'L')s
+         :If 0<≢l←(('(?:\W|^)',(2⊃c),'(?:\W|$)')⎕S'%'⍠'Mode' 'L')s
              R←0
              ⎕←NL,'Found uses of ',(2⊃Features∆[1+i;]),' (introduced with V',(⍕1⊃c),') in these statements:'
              :If 1=3⊃c
