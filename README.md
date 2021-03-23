@@ -8,7 +8,7 @@ Helps to find out if Dyalog-code will run under a certain (older) version (12.1 
 
 * Clone the repository (or download to a folder of your choice)
 
-* ]link.create /git/CompCheck #.CompCheck  ⍝  adjust names as you like
+* ]link.create #.CompCheck  /git/CompCheck   ⍝  adjust names as you like
 
 * `15 #.CompCheck.Run #.foo`
 
