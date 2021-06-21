@@ -22,7 +22,7 @@ Helps to find out if Dyalog-code will run under a certain (older) version (12.1 
 
   test file `hoo.dyalog` for compatibility with Classic interpreter and versions ≥14.1
 
-A result of `1` indicates success, 0 indicates lack of compatibility. Session-output will explain highlight incompatibilities and provide a summary with offending symbols that were found.
+A result of `1` indicates success, 0 indicates lack of compatibility. Session-output will explain incompatibilities and provide a summary with offending symbols that were found.
 
 ## Contributing
 
